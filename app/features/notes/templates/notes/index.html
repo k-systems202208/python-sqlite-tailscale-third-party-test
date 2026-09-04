@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="hero">
+  <h1>Notes</h1>
+  <p>Third-party feature built from the common template.</p>
+  <p><a href="{{ url_for('core.index') }}">Back to common core</a></p>
+</section>
+
+<section class="card">
+  <form method="post" action="{{ url_for('notes.add_note') }}" class="stack">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+    <label>Title
+      <input name="title" maxlength="200" required placeholder="Example: Meeting memo">
+    </label>
+    <label>Body
+      <textarea name="body" rows="4" maxlength="2000" placeholder="Optional"></textarea>
+    </label>
+    <button type="submit">Add note</button>
+  </form>
+</section>
+
+<section class="items">
+  {% for note in notes %}
+    <article class="card item">
+      <form method="post" action="{{ url_for('notes.update', note_id=note['id']) }}" class="stack">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+        <label>Title
+          <input name="title" maxlength="200" required value="{{ note['title'] }}">
+        </label>
+        <label>Body
+          <textarea name="body" rows="3" maxlength="2000">{{ note['body'] }}</textarea>
+        </label>
+        <small>updated {{ note['updated_at'] }}</small>
+        <button type="submit" class="secondary">Update</button>
+      </form>
+      <form method="post" action="{{ url_for('notes.delete', note_id=note['id']) }}" data-confirm="Delete this note?">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+        <button type="submit" class="danger">Delete</button>
+      </form>
+    </article>
+  {% else %}
+    <p class="empty">No notes yet.</p>
+  {% endfor %}
+</section>
+{% endblock %}

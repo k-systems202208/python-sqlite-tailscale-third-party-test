@@ -1,4 +1,4 @@
-"""Removable items sample feature."""
+"""Notes feature for the third-party sample application."""
 
 
 def register(app) -> None:
