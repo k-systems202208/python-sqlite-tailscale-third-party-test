@@ -84,7 +84,17 @@ GitHub Actions CI
 Squash Merge
 ```
 
-Git / GitHubの操作説明は [BEGINNER-GUIDE.md](BEGINNER-GUIDE.md)、共通テンプレートからの作り替え方は [docs/CUSTOMIZING.md](docs/CUSTOMIZING.md)、feature追加の設計契約は [docs/EXTENDING.md](docs/EXTENDING.md) を参照してください。
+Git / GitHubの操作説明は [BEGINNER-GUIDE.md](BEGINNER-GUIDE.md) を参照してください。
+
+## 共通ドキュメント
+
+テンプレート由来の共通基盤を安全に維持するため、独自アプリ化後も次の資料を残します。
+
+- [docs/CUSTOMIZING.md](docs/CUSTOMIZING.md) - テンプレートから独自アプリへ作り替える手順
+- [docs/EXTENDING.md](docs/EXTENDING.md) - feature追加時の共通契約
+- [docs/OPERATIONS.md](docs/OPERATIONS.md) - 運用・障害切り分け・Backup / Restore
+- [docs/TEMPLATE-SMOKE-TEST.md](docs/TEMPLATE-SMOKE-TEST.md) - 第三者利用の受入確認
+- [docs/GITHUB-SETUP.md](docs/GITHUB-SETUP.md) - GitHub Ruleset / Required Check設定
 
 ## 実地テスト記録
 
